@@ -1,5 +1,7 @@
 package kz.attractor.java.homework45;
 
+import kz.attractor.java.EmployeeService;
+
 public class Employee {
     private Integer id;
     private String firstName;
@@ -7,7 +9,7 @@ public class Employee {
     private String email;
     private String password;
 
-    public Employee(int id, String firstName, String lastName, String email, String password){
+    public Employee(Integer id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,11 +17,31 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(String firstName, String lastName) {
-        this(0, firstName, lastName, null, null);
+    public String getEmail() {
+        return email;
     }
 
-    public Employee(int id, String firstName, String lastName) {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Employee(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Employee(Integer id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Integer getId() {

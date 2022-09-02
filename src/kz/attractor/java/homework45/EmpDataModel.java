@@ -12,7 +12,6 @@ public class EmpDataModel {
         employees.add(new Employee(1, "Brad", "Barnard"));
         employees.add(new Employee(2, "Jeffery", "Carney"));
         employees.add(new Employee(3, "Philip", "Salter"));
-        String empJson = new Gson().toJson(employees);
     }
 
     public Employee getEmployee() {

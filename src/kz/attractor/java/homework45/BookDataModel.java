@@ -15,7 +15,6 @@ public class BookDataModel {
         books.add(new Book(3, "Life of Pi", "Yann Martel", "In office"));
         books.add(new Book(4, "1984", "George Orwell", "In office"));
         books.add(new Book(5, "The Alchemist", "Paulo Coelho", "In office"));
-        String bookJson = new Gson().toJson(books);
     }
 
     public Book getBook() {
