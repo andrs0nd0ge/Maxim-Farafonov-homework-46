@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Books Page</title>
+    <link href="css/freemarker.css" rel="stylesheet">
+</head>
+<body>
+<div class = "container">
+    <div class="table flex flex-col">
+        <div class="header flex">
+            <div class="column">
+                ID
+            </div>
+            <div class="column">
+                Name
+            </div>
+            <div class="column">
+                Author
+            </div>
+            <div class="column">
+                State
+            </div>
+        </div>
+
+        <#list books as book>
+        <div class="row ${book?item_parity} flex">
+            <div class="column">
+                ${book.id}
+            </div>
+            <div class="column">
+                <a href="http://localhost:9889/tfios">${book.name}</a>
+            </div>
+            <div class="column">
+                ${book.author}
+            </div>
+            <div>
+                ${book.state}
+            </div>
+        </div>
+    </#list>
+</div>
+</body>

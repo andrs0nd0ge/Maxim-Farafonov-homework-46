@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "The Fault in Our Stars",
+    "author": "John Green",
+    "state": "In office"
+  },
+  {
+    "id": 2,
+    "name": "What If? Serious Scientific Answers to Absurd Hypothetical Questions",
+    "author": "Randall Munroe",
+    "state": "In office"
+  },
+  {
+    "id": 3,
+    "name": "Life of Pi",
+    "author": "Yann Martel",
+    "state": "In office"
+  },
+  {
+    "id": 4,
+    "name": "1984",
+    "author": "George Orwell",
+    "state": "In office"
+  },
+  {
+    "id": 5,
+    "name": "The Alchemist",
+    "author": "Paulo Coelho",
+    "state": "In office"
+  }
+]
