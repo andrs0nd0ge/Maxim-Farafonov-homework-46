@@ -1,6 +1,6 @@
 package kz.attractor.java;
 
-import kz.attractor.java.homework45.Lesson45Server;
+import kz.attractor.java.homework46.Lesson45Server;
 
 import java.io.IOException;
 

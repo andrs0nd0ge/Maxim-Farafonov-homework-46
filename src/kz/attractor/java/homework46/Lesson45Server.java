@@ -1,4 +1,4 @@
-package kz.attractor.java.homework45;
+package kz.attractor.java.homework46;
 
 import com.sun.net.httpserver.HttpExchange;
 import kz.attractor.java.EmployeeService;

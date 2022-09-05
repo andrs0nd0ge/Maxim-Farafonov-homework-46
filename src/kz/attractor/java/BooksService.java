@@ -2,7 +2,7 @@ package kz.attractor.java;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import kz.attractor.java.homework45.Book;
+import kz.attractor.java.homework46.Book;
 
 import java.io.IOException;
 import java.nio.file.Files;
