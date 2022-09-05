@@ -10,27 +10,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class BookService {
+public class BooksService {
     private static final Gson GSON = new GsonBuilder().create();
-    private static final Path PATH = Paths.get("./books.json");
+    private static final Path PATH = Paths.get("src/kz/attractor/java/books.json");
 
-    public static Book[] readFile(){
+    public static List<Book> readFile(){
         String json = "";
-        try {
+        try{
             json = Files.readString(PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return GSON.fromJson(json, Book[].class);
-    }
 
-//    public static void writeFile(Track[] tracks){
-//        String json = GSON.toJson(tracks);
-//        try {
-//            byte[] arr = json.getBytes();
-//            Files.write(PATH, arr);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+        Book[] books = GSON.fromJson(json, Book[].class);
+        return List.of(books);
+    }
 }

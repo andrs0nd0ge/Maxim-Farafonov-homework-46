@@ -9,16 +9,13 @@
     <link href="css/freemarker.css" rel="stylesheet">
 </head>
 <body>
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="/images/book.jpg" class="" alt="..." style="max-width: 300px;">
+<div class="container">
+    <div class="table flex flex-col">
+        <div class="row  flex">
+            ${name!"-- not specified --"}
         </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h3 class="card-title">${book.name} by ${book.author}</h3>
-                <p class="card-text">This book has been given to Brad Barnard</p>
-            </div>
+        <div class="column">
+            ${author!"-- not specified --"}
         </div>
     </div>
 </div>

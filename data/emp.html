@@ -21,17 +21,10 @@
             <div class="column">
                 Last Name
             </div>
-            <div class="column">
-                Books previously taken from the office
-            </div>
-            <div class="column">
-                Books taken from the office
-            </div>
         </div>
 
         <#list employees as employee>
         <div class="row ${employee?item_parity} flex">
-            <#if employee.id = 1>
             <div class="column">
                 ${employee.id}
             </div>
@@ -41,13 +34,6 @@
             <div class="column">
                 ${employee.lastName}
             </div>
-            <div class="column">
-                -
-            </div>
-            <div class="column">
-                The Fault in Our Stars
-            </div>
-            </#if>
         </div>
     </#list>
 </div>

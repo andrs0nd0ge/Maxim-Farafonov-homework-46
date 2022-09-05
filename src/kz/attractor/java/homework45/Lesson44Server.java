@@ -5,11 +5,16 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
+import kz.attractor.java.EmployeeService;
 import kz.attractor.java.server.BasicServer;
 import kz.attractor.java.server.ContentType;
 import kz.attractor.java.server.ResponseCodes;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class Lesson44Server extends BasicServer {
     private final static Configuration freemarker = initFreeMarker();
@@ -18,7 +23,7 @@ public class Lesson44Server extends BasicServer {
         super(host, port);
         registerGet("/sample", this::freemarkerSampleHandler);
         registerGet("/books", this::booksHandler);
-        registerGet("/tfios", this::bookHandler);
+        registerGet("/books/book", this::bookHandler);
         registerGet("/emp", this::empHandler);
     }
 
@@ -48,7 +53,7 @@ public class Lesson44Server extends BasicServer {
     }
 
     private void booksHandler(HttpExchange exchange) {
-        renderTemplate(exchange, "main.html", getBookDataModel());
+        renderTemplate(exchange, "books.html", getBooksDataModel());
     }
 
     private void bookHandler(HttpExchange exchange) {
@@ -56,7 +61,7 @@ public class Lesson44Server extends BasicServer {
     }
 
     private void empHandler(HttpExchange exchange) {
-        renderTemplate(exchange, "emp.html", getEmpDataModel());
+        renderTemplate(exchange, "anEmployee.html", getEmpDataModel());
     }
 
     protected void renderTemplate(HttpExchange exchange, String templateFile, Object dataModel) {
@@ -96,11 +101,19 @@ public class Lesson44Server extends BasicServer {
         return new SampleDataModel();
     }
 
-    private BookDataModel getBookDataModel() {
+    private Book getBookDataModel() {
+        Random random = new Random();
+        List<Book> books = new BookDataModel().getBooks();
+        return books.get(random.nextInt(books.size()));
+    }
+
+    private BookDataModel getBooksDataModel() {
         return new BookDataModel();
     }
 
-    private EmpDataModel getEmpDataModel() {
-        return new EmpDataModel();
+    public Map<String, Object> getEmpDataModel() {
+        HashMap<String, Object> stringUserHashMap = new HashMap<>();
+        stringUserHashMap.put("users", EmployeeService.readFile());
+        return stringUserHashMap;
     }
 }
