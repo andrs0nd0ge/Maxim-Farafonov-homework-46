@@ -6,13 +6,10 @@ import kz.attractor.java.server.ContentType;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Lesson45Server extends Lesson44Server {
-    private Employee user = null;
+    protected Employee user = null;
 
     public Lesson45Server(String host, int port) throws IOException {
         super(host, port);
@@ -24,7 +21,7 @@ public class Lesson45Server extends Lesson44Server {
         registerGet("/profile", this::profileGet);
     }
 
-    private void loginPost(HttpExchange exchange) {
+    protected void loginPost(HttpExchange exchange) {
         Map<String, Object> map = new HashMap<>();
         getContentType(exchange);
         String raw = getBody(exchange);
@@ -34,6 +31,7 @@ public class Lesson45Server extends Lesson44Server {
                 List<Employee> users = EmployeeService.readFile();
                 for (Employee employee : users) {
                     if (employee.getEmail().equals(parsed.get("email")) && employee.getPassword().equals(parsed.get("user-password"))) {
+                        createCookie(exchange, employee);
                         user = employee;
                         throw new RuntimeException();
                     }
@@ -44,6 +42,9 @@ public class Lesson45Server extends Lesson44Server {
         } catch (Exception e) {
             redirect303(exchange, "/profile");
         }
+    }
+
+    protected void createCookie(HttpExchange exchange, Employee employee) {
     }
 
     private void loginGet(HttpExchange exchange) {
@@ -85,7 +86,8 @@ public class Lesson45Server extends Lesson44Server {
         sendFile(exchange, path, ContentType.TEXT_HTML);
     }
 
-    private void profileGet(HttpExchange exchange) {
+    protected void profileGet(HttpExchange exchange) {
+        Lesson46Server.getCookies(exchange);
         if(user != null) {
             user.setBooks();
         }

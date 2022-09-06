@@ -24,7 +24,6 @@ public class Employee {
         this.email = email;
         this.password = password;
     }
-
     public void setBooks() {
         List<Book> books = BooksService.readFile();
         if (curBooksId != null) {
